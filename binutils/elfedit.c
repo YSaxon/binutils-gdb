@@ -302,6 +302,7 @@ elf_class (int mach)
       return ELF_CLASS_64;
     case EM_X86_64:
     case EM_NONE:
+    case EM_ARM:
       return ELF_CLASS_BOTH;
     default:
       return ELF_CLASS_BOTH;
@@ -869,6 +870,8 @@ elf_machine (const char *mach)
     return EM_X86_64;
   if (strcasecmp (mach, "none") == 0)
     return EM_NONE;
+  if (strcasecmp (mach, "arm") == 0)
+    return EM_ARM;
 
   error (_("Unknown machine type: %s\n"), mach);
 
